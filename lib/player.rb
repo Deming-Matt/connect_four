@@ -1,10 +1,13 @@
 #Player Input
+require './lib/board'
+require 'pry'
 
 class Player
-  def initialize(name)
-    @name = name
+    attr_reader
+  def initialize
+    
 
   end
 
-  
+
 end
