@@ -10,7 +10,7 @@ RSpec.describe Board do
     expect(game_board).to be_an_instance_of Board
   end
 
-  xit "has introduction" do
+  it "has introduction" do
     game_board = Board.new
 
     expect(game_intro).to eq "Welcome to CONNECT FOUR! Enter p to play. Enter q to quit."
