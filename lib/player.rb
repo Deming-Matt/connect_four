@@ -1,1 +1,10 @@
-#PLayer Input
+#Player Input
+
+class Player
+  def initialize(name)
+    @name = name
+
+  end
+
+  
+end

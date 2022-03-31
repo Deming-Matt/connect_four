@@ -14,6 +14,23 @@ class Board
    Enter p to play. Enter q to quit.
 
    "
+  # def play_or_quit(user_input)
+  #   if user_input.downcase == "p"
+  #     #start method here
+  #   elsif user_input.downcase == "q"
+  #     # quit method here
+  #   else user_input.downcase != "p" || "q"
+  #     #reprompt method here
+  #   end
+  # end
+
+
+   def start
+     p "Welcome to Connet Four! Enter your name."
+     name = gets.chomp
+     p "> #{name} Try to connect 4 X's in a row"
+   end
+
   puts game_intro
   # def playing_board
 
@@ -34,12 +51,6 @@ class Board
     p game_board[:row4].join
     p game_board[:row5].join
     p game_board[:row6].join
-
-
-
-
-
-
 
 # binding.pry
 end
