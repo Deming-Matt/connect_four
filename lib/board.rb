@@ -1,49 +1,29 @@
 require 'pry'
 
 class Board
-  attr_reader :game_board, :game_intro
+  attr_reader :board
 
   def initialize
-    @game_board = game_board
+    @board = board
     # @game_intro = game_intro
 
   end
 
-  game_intro = "Welcome to CONNECT FOUR!
+  game_board ={
+    row0: [ "A",  "B",  "C",  "D",  "E",  "F",  "G"],
+    row1: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
+    row2: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
+    row3: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
+    row4: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
+    row5: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
+    row6: [ '.',  '.',  '.',  '.',  '.',  '.',  '.']
+  }
+  
+  def start
+    p "Welcome to Connet Four! Enter your name."
+    name = gets.chomp
+    p "> #{name} Try to connect 4 X's in a row"
 
-   Enter p to play. Enter q to quit.
-
-   "
-  # def play_or_quit(user_input)
-  #   if user_input.downcase == "p"
-  #     #start method here
-  #   elsif user_input.downcase == "q"
-  #     # quit method here
-  #   else user_input.downcase != "p" || "q"
-  #     #reprompt method here
-  #   end
-  # end
-
-
-   def start
-     p "Welcome to Connet Four! Enter your name."
-     name = gets.chomp
-     p "> #{name} Try to connect 4 X's in a row"
-   end
-
-  puts game_intro
-  # def playing_board
-
-    game_board ={
-      row0: [ "A",  "B",  "C",  "D",  "E",  "F",  "G"],
-      row1: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-      row2: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-      row3: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-      row4: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-      row5: [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-      row6: [ '.',  '.',  '.',  '.',  '.',  '.',  '.']
-    }
-  # end
     p game_board[:row0].join
     p game_board[:row1].join
     p game_board[:row2].join
@@ -51,6 +31,33 @@ class Board
     p game_board[:row4].join
     p game_board[:row5].join
     p game_board[:row6].join
+  end
 
-# binding.pry
+  def play_or_quit(user_input)
+    if user_input.downcase == "p"
+      board.start
+    elsif user_input.downcase == "q"
+      # quit method here
+    else user_input.downcase != "p"
+      #reprompt method here
+    end
+  end
+
+  def game_intro
+    p "Welcome to CONNECT FOUR!
+    Enter p to play. Enter q to quit."
+    user_input = gets.chomp
+    board.play_or_quit
+  end
+
+
+
+  # def playing_board
+
+  # end
+
+
 end
+
+# p game_intro
+# p start
