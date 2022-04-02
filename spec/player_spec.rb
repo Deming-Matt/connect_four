@@ -3,7 +3,9 @@ require "./lib/player"
 
 RSpec.describe Player do
   it "exists" do
+    player = Player.new
 
+<<<<<<< HEAD
     player = Player.new
     expect(player).to be_an_instance_of Player
   end
@@ -20,6 +22,9 @@ RSpec.describe Player do
     "......."
     "......."
     "..X...."
+=======
+    expect(player).to be_an_instance_of Player
+>>>>>>> main
   end
 
 end

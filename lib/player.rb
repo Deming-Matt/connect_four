@@ -1,5 +1,6 @@
 #Player Input
 require './lib/board'
+<<<<<<< HEAD
 
 class Player
   attr_reader :name
@@ -134,5 +135,16 @@ class Player
   # def player_input
   #
   # end
+=======
+require 'pry'
+
+class Player
+    attr_reader
+  def initialize
+    
+
+  end
+
+>>>>>>> main
 
 end
