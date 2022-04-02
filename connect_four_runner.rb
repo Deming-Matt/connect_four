@@ -2,11 +2,11 @@ require './lib/board'
 require './lib/player'
 require 'pry'
 
-# binding.pry
+binding.pry
 
 
-board.start
-board.game_intro
+Board.start
+
 
 
 
