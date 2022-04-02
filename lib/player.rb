@@ -1,6 +1,6 @@
 #Player Input
 require './lib/board'
-<<<<<<< HEAD
+# <<<<<<< HEAD
 
 class Player
   attr_reader :name
@@ -41,7 +41,6 @@ class Player
         game_board[:row2][1].replace("X")
       elsif game_board[:row1][1] == "."
         game_board[:row1][1].replace("X")
-
       end
     elsif @user_input.upcase == "c"
       # game_board.keys.each do |row|
@@ -57,7 +56,6 @@ class Player
         game_board[:row2][2].replace("X")
       elsif game_board[:row1][2] == "."
         game_board[:row1][2].replace("X")
-
       end
     elsif @user_input.upcase == "d"
       # game_board.keys.each do |row|
@@ -73,7 +71,6 @@ class Player
         game_board[:row2][3].replace("X")
       elsif game_board[:row1][3] == "."
         game_board[:row1][3].replace("X")
-
       end
     elsif @user_input.upcase == "e"
       # game_board.keys.each do |row|
@@ -89,7 +86,6 @@ class Player
         game_board[:row2][4].replace("X")
       elsif game_board[:row1][4] == "."
         game_board[:row1][4].replace("X")
-
       end
     elsif @user_input.upcase == "f"
       # game_board.keys.each do |row|
@@ -105,7 +101,6 @@ class Player
         game_board[:row2][5].replace("X")
       elsif game_board[:row1][5] == "."
         game_board[:row1][5].replace("X")
-
       end
     elsif @user_input.upcase == "g"
       # game_board.keys.each do |row|
@@ -126,25 +121,14 @@ class Player
     return @game_board
   end
 
-  p "pick your column"
-  p @game_board
-  user_input = gets.chomp
-
-  # place_piece
-
-  # def player_input
-  #
-  # end
-=======
-require 'pry'
-
-class Player
-    attr_reader
-  def initialize
-    
-
-  end
-
->>>>>>> main
+  # # def player_input
+  # p "pick your column"
+  # p @game_board
+  # user_input = gets.chomp
+  # #
+  # # end
 
 end
+
+
+# require 'pry'
