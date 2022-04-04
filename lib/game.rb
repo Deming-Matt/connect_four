@@ -53,157 +53,51 @@ require './lib/player'
     end
   end
 
-  # def user_input
-  #   input = [gets.chomp]
-  # end
+  def user_input
+    input = gets.chomp
+    if input == "A"
+      return 0
+    elsif input == "B"
+      return 1
+    elsif input == "C"
+      return 2
+    elsif input == "D"
+      return 3
+    elsif input == "E"
+      return 4
+    elsif input == "F"
+      return 5
+    elsif input == "G"
+      return 6
+    else
+      return -1
+    end
+  end
 
   def player_place_piece
 
-    # if user_input != game_board[0]
-    #   p "Sorry, please try again."
-    #   user_input
-    # end
-#require 'pry';binding.pry
-    user_input = "A"
+    column = user_input
 
-    if user_input == "A"
-      # board.keys.each do |row|
-      if @game_board[6][0] == "."
-        return @game_board[6][0] = "X"
-      elsif @game_board[5][0] == "."
-        return @game_board[5][0] = "X"
-      elsif @game_board[4][0] == "."
-        return @game_board[4][0] = "X"
-      elsif @game_board[3][0] == "."
-        return @game_board[3][0] = "X"
-      elsif @game_board[2][0] == "."
-        return @game_board[2][0] = "X"
-      elsif @game_board[1][0] == "."
-        return @game_board[1][0] = "X"
-      elsif @game_board[1..6][0] == "X"
-        p "Invalid entry. Please try again."  
-      else user_input != @game_board[0..6]
-        p "Sorry, please try again."
-        #user_input
+    if column < 0
+      p "Invalid column letter. Please enter a letter A-G."
+      elsif @game_board[6][column] == "."
+        return @game_board[6][column] = "X"
+      elsif @game_board[5][column] == "."
+        return @game_board[5][column] = "X"
+      elsif @game_board[4][column] == "."
+        return @game_board[4][column] = "X"
+      elsif @game_board[3][column] == "."
+        return @game_board[3][column] = "X"
+      elsif @game_board[2][column] == "."
+        return @game_board[2][column] = "X"
+      elsif @game_board[1][column] == "."
+        return @game_board[1][column] = "X"
+      else # user_input != @game_board[0..6]
+        p "This column is full. Please choose another column"
+
       end
     end
 
-
-    if @user_input == "B"
-      # board.keys.each do |row|
-    elsif @game_board[6][1] == "."
-        return @game_board[6][1] = "X"
-      elsif @game_board[5][1] == "."
-        return @game_board[5][1] = "X"
-      elsif @game_board[4][1] == "."
-        return @game_board[4][1] = "X"
-      elsif @game_board[3][1] == "."
-        return @game_board[3][1] = "X"
-      elsif @game_board[2][1] == "."
-        return @game_board[2][1] = "X"
-      elsif @game_board[1][1] == "."
-        return @game_board[1][1] = "X"
-      else user_input != @game_board[0..6]
-        p "Sorry, please try again."
-        #user_input
-    end
-
-    if @user_input == "C"
-      # board.keys.each do |row|
-      elsif @game_board[6][2] == "."
-        return @game_board[6][2] = "X"
-      elsif @game_board[5][2] == "."
-        return @game_board[5][2] = "X"
-      elsif @game_board[4][2] == "."
-        return @game_board[4][2] = "X"
-      elsif @game_board[3][2] == "."
-        return @game_board[3][2] = "X"
-      elsif @game_board[2][2] == "."
-        return @game_board[2][2] = "X"
-      elsif @game_board[1][2] == "."
-        return @game_board[1][2] = "X"
-      else user_input != @game_board[0]
-        p "Sorry, please try again."
-        #user_input
-    end
-
-    if @user_input == "D"
-      # board.keys.each do |row|
-      elsif @game_board[6][3] == "."
-        return @game_board[6][3] = "X"
-      elsif @game_board[5][3] == "."
-        return @game_board[5][3] = "X"
-      elsif @game_board[4][3] == "."
-        return @game_board[4][3] = "X"
-      elsif @game_board[3][3] == "."
-        return @game_board[3][3] = "X"
-      elsif @game_board[2][3] == "."
-        return @game_board[2][3] = "X"
-      elsif @game_board[1][3] == "."
-        return @game_board[1][3] = "X"
-      else user_input != @game_board[0]
-        p "Sorry, please try again."
-        #user_input
-    end
-
-    if @user_input == "E"
-      # board.keys.each do |row|
-      elsif @game_board[6][4] == "."
-        return @game_board[6][4] = "X"
-      elsif @game_board[5][4] == "."
-        return @game_board[5][4] = "X"
-      elsif @game_board[4][4] == "."
-        return @game_board[4][4] = "X"
-      elsif @game_board[3][4] == "."
-        return @game_board[3][4] = "X"
-      elsif @game_board[2][4] == "."
-        return @game_board[2][4] = "X"
-      elsif @game_board[1][4] == "."
-        return @game_board[1][4] = "X"
-      else user_input != @game_board[0]
-        p "Sorry, please try again."
-        #user_input
-    end
-
-    if @user_input == "F"
-      # board.keys.each do |row|
-      elsif @game_board[6][5] == "."
-        return @game_board[6][5] = "X"
-      elsif @game_board[5][5] == "."
-        return @game_board[5][5] = "X"
-      elsif @game_board[4][5] == "."
-        return @game_board[4][5] = "X"
-      elsif @game_board[3][5] == "."
-        return @game_board[3][5] = "X"
-      elsif @game_board[2][5] == "."
-        return @game_board[2][5] = "X"
-      elsif @game_board[1][5] == "."
-        return @game_board[1][5] = "X"
-      else user_input != @game_board[0]
-        p "Sorry, please try again."
-        #user_input
-    end
-
-    if @user_input == "G"
-      # board.keys.each do |row|
-      elsif @game_board[6][6] == "."
-        return @game_board[6][6] = "X"
-      elsif @game_board[5][6] == "."
-        return @game_board[5][6] = "X"
-      elsif @game_board[4][6] == "."
-        return @game_board[4][6] = "X"
-      elsif @game_board[3][6] == "."
-        return @game_board[3][6] = "X"
-      elsif @game_board[2][6] == "."
-        return @game_board[2][6] = "X"
-      elsif @game_board[1][6] == "."
-        return @game_board[1][6] = "X"
-      else user_input != @game_board[0]
-        p "Sorry, please try again."
-        #user_input
-    end
-
-end
 
 # welcome
 p "Choose a Column"
@@ -221,7 +115,8 @@ player_place_piece
 visual_board
 player_place_piece
 visual_board
-
+player_place_piece
+visual_board
 
 
 #   p "Player Wins! Fatality!"
