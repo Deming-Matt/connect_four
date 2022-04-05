@@ -1,46 +1,51 @@
 # Computer Automation
 class Computer
-  attr_reader :columns, :board
-  def initialize(board)
-    @board = board
+  attr_reader :columns
+  def initialize(game_board)
+    @board = game_board
     @columns = columns
     columns = ["A", "B", "C", "D", "E", "F", "G"]
 
   end
 
   def random_column
-    column = @columns.sample
+      @columns = ["A", "B", "C", "D", "E", "F", "G"]
+      random = @columns.sample
 
-    if column == "A"
-      return 0
-    elsif column == "B"
-      return 1
-    elsif column == "C"
-      return 2
-    elsif column == "D"
-      return 3
-    elsif column == "E"
-      return 4
-    elsif column == "F"
-      return 5
-    elsif column == "G"
-      return 6
+      if random == "A"
+        return 0
+      elsif random == "B"
+        return 1
+      elsif random == "C"
+        return 2
+      elsif random == "D"
+        return 3
+      elsif random == "E"
+        return 4
+      elsif random == "F"
+        return 5
+      elsif random == "G"
+        return 6
+      end
     end
 
-    if @board[6][column] == "."
-      return @board[6][column] = "O"
-    elsif @board[5][column] == "."
-      return @board[5][column] = "O"
-    elsif @board[4][column] == "."
-      return @board[4][column] = "O"
-    elsif @board[3][column] == "."
-      return @board[3][column] = "O"
-    elsif @board[2][column] == "."
-      return @board[2][column] = "O"
-    elsif @board[1][column] == "."
-      return @board[1][column] = "O"
-    end
-    random_column
-  end
+    def comp_place_piece
+      comp_column = random_column
 
+      if @game_board[6][comp_column] == "."
+        return @game_board[6][comp_column] = "O"
+      elsif @game_board[5][comp_column] == "."
+        return @game_board[5][comp_column] = "O"
+      elsif @game_board[4][comp_column] == "."
+        return @game_board[4][comp_column] = "O"
+      elsif @game_board[3][comp_column] == "."
+        return @game_board[3][comp_column] = "O"
+      elsif @game_board[2][comp_column] == "."
+        return @game_board[2][comp_column] = "O"
+      elsif @game_board[1][comp_column] == "."
+        return @game_board[1][comp_column] = "O"
+      else
+        random_column
+      end
+    end
 end
