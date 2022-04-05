@@ -1,10 +1,14 @@
 #Player Input
+require './lib/board'
+
 
 class Player
-
-  def initialize
+  attr_reader :game_board
+  def initialize(game_board)
+    @board = game_board
 
   end
+  
     def user_input
       input = gets.chomp
       if input == "A"

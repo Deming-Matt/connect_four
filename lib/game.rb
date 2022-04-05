@@ -1,7 +1,8 @@
 require './lib/board'
 require './lib/player'
 require './lib/computer'
-require './lib/win_array'
+require './lib/turn'
+require './lib/win'
 require 'pry'
 
 class Game

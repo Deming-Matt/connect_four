@@ -4,11 +4,9 @@ require './lib/computer'
 require './lib/turn'
 
 class Win
-  attr_reader :win_array
+  attr_reader :board,
   def initialize(game_board)
-
     @board = game_board
-
 
     @board_hash = {
       a1: @board[6][0], a2: @board[5][0], a3: @board[4][0], a4: @board[3][0], a5: @board[2][0], a6: @board[1][0],
