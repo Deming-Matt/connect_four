@@ -1,23 +1,25 @@
-# class Board
-#   attr_reader
-#
-#   def initialize
-#
-#      # a = ["a", ["a", "b"], "b", ["b", "c"], "c", ["c", "d"]]
-#
-#     @game_board =[ #changed board to an array of arrays
-#       [ "A",  "B",  "C",  "D",  "E",  "F",  "G"],
-#       [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-#       [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-#       [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-#       [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-#       [ '.',  '.',  '.',  '.',  '.',  '.',  '.'],
-#       [ '.',  '.',  '.',  '.',  '.',  '.',  '.']
-#     ]
-#   end
-#
-# #I don't think there is any use for a board class.
-# #The way the board is set up there is no need for a class.
-# #it
-#
-# end
+
+require 'pry'
+
+class Board
+  attr_reader :game_board
+
+  def initialize
+    @game_board =[ #changed board to an array of arrays
+    [ "A",  "B",  "C",  "D",  "E",  "F",  "G"],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."]
+  ]
+  end
+
+  def visual_board
+    @game_board.each do |row|
+      puts row.join(" ")
+    end
+  end
+
+end
