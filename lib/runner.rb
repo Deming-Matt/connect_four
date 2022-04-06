@@ -9,11 +9,17 @@ require 'pry'
 
 game = Game.new
 
-# require 'pry'; binding.pry
-game.start
 game.welcome
-p "Choose a Column"
-game.player.player_place_piece
+game.player.place_piece
+game.win.win_check
 game.board.visual_board
-game.computer.random_column
-game.win.victory
+game.player.place_piece
+game.win.win_check
+game.board.visual_board
+game.player.place_piece
+game.win.win_check
+game.board.visual_board
+game.player.place_piece
+game.win.win_check
+game.board.visual_board
+game.win.win_check

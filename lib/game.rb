@@ -12,13 +12,13 @@ class Game
     @player = Player.new(@board.game_board)
     @computer = Computer.new(@board.game_board)
     @win = Win.new(@board.game_board)
+  end
     # binding.pry
 
-  end
   def start
     p "Enter your name."
     name = gets.chomp
-    p"#{name} Try to connect 4 X's in a row"
+    p"#{name} Try to connect 4 X's in a row. Chose a Column."
     @board.visual_board
   end
 
@@ -34,6 +34,7 @@ class Game
       end
   end
 
+end
 
 #   p "Player Wins! Fatality!"
 # end
