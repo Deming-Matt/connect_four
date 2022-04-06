@@ -12,6 +12,8 @@ class Game
     @player = Player.new(@board.game_board)
     @computer = Computer.new(@board.game_board)
     @win = Win.new(@board.game_board)
+    @turns = 0
+
     # binding.pry
 
   end
@@ -33,16 +35,20 @@ class Game
         welcome
       end
   end
+
+  def turn_loop
+  if @turns == 21 && @is_winner == false
+    p "Its a Draw"
+  else
+      player.place_piece
+      board.visual_board
+      win.win_check
+      computer.place_piece
+      board.visual_board
+      win.win_check
+      @turns = @turns + 1
+      turn_loop
+
+    end
+  end
 end
-
-
-#   p "Player Wins! Fatality!"
-# end
-#
-# class Computer
-#   p "You buggin'! Computer Always Wins!
-# end
-#
-# class Game
-#   p "It's a Draw! Everybody sit down and STFU!"
-#end

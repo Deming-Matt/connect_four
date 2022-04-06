@@ -30,7 +30,7 @@ class Computer
       elsif random == "G"
         return 6
       else
-        return -1
+        return - 1
       end
     end
 
@@ -50,7 +50,7 @@ class Computer
         elsif @board[1][comp_column] == "."
           return @board[1][comp_column] = "O"
         else
-          random_column
+          place_piece
         end
     end
 

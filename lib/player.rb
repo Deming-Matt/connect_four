@@ -3,7 +3,7 @@ require './lib/board'
 
 
 class Player
-  # attr_reader :game_board
+ attr_reader :game_board
   def initialize(game_board)
     @board = game_board
 

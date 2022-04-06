@@ -8,7 +8,7 @@ class Turn
     @board = game_board
     @player = Player.new(@board.game_board)
     @computer = Computer.new(@board.game_board)
-    @turns = turns
+    @turns = 0
   end
 
 end
