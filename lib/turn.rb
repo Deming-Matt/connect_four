@@ -3,23 +3,12 @@ require './lib/player'
 require './lib/computer'
 
 class Turn
-  attr_reader
+  attr_reader :turns
   def initialize(game_board)
     @board = game_board
     @player = Player.new(@board.game_board)
     @computer = Computer.new(@board.game_board)
-    @turns = 0
-
-
-  end
-
-  def turn_loop
-    player_place_piece
-    visual_board
-    comp_place_piece
-    visual_board
-    @turns = turns + 2
-    win conditions
+    @turns = turns
   end
 
 end

@@ -4,12 +4,13 @@ require './lib/computer'
 require './lib/turn'
 
 class Win
-  attr_reader :board, :player_wins, :computer_wins
+  attr_reader :board, :player_wins, :computer_wins, :is_winner
 
   def initialize(game_board)
     @board = game_board
     @player_wins = false
     @computer_wins = false
+    @is_winner = is_winner
   end
 
   #checking board
@@ -22,12 +23,10 @@ class Win
         if col < 4
           horizontal(row,col)
           if @player_wins == true
-            p "Player win"
             is_winner = true
             break
           end
           if @computer_wins == true
-            p "Computer_wins"
             is_winner = true
             break
           end
@@ -37,13 +36,11 @@ class Win
         if row < 4
           vertical(row,col)
           if @player_wins == true
-            p "Player win"
             is_winner = true
             break
           end
 
           if @computer_wins == true
-            p "Computer_wins"
             is_winner = true
             break
           end
@@ -53,12 +50,10 @@ class Win
         if row < 4 || col < 4
           diagnal(row,col)
           if @player_wins == true
-            p "Player win"
             is_winner = true
             break
           end
           if @computer_wins == true
-            p "Computer_wins"
             is_winner = true
             break
           end
@@ -69,9 +64,16 @@ class Win
 
       end
 
-      if is_winner == true
-        break
-      end
+    end
+  end
+
+  def is_winner
+    @is_winner = false
+    if @player_wins == true
+      p "Win for humanity"
+    end
+     if @computer_wins == true
+      p "Win for the machines"
     end
   end
 
@@ -86,14 +88,6 @@ class Win
   end
 
   def vertical(row,col)
-    p row
-    p col
-    p "-------"
-    p @board[row][col]
-    p @board[row+1][col]
-    p @board[row+2][col]
-    p @board[row+3][col]
-    p "---------"
     if @board[row][col] == "X" && @board[row+1][col] == "X" && @board[row+2][col] == "X" && @board[row+3][col] == "X"
       @player_wins = true
     end

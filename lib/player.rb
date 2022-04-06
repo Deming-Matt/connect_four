@@ -3,7 +3,7 @@ require './lib/board'
 
 
 class Player
-  attr_reader :game_board
+  # attr_reader :game_board
   def initialize(game_board)
     @board = game_board
 
@@ -36,7 +36,7 @@ class Player
 
       if column < 0
         p "Invalid column letter. Please enter a letter A-G."
-        player_place_piece
+        place_piece
         elsif @board[6][column] == "."
           return @board[6][column] = "X"
         elsif @board[5][column] == "."
@@ -51,7 +51,7 @@ class Player
           return @board[1][column] = "X"
         else # user_input != @game_board[0..6]
           p "This column is full. Please choose another column"
-          player_place_piece
+          place_piece
       end
     end
 
