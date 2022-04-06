@@ -1,6 +1,8 @@
 # Computer Automation
+require './lib/board'
 class Computer
-  attr_reader :columns
+  attr_reader :columns, :game_board
+
   def initialize(game_board)
     @board = game_board
     @columns = columns
@@ -11,6 +13,7 @@ class Computer
   def random_column
       @columns = ["A", "B", "C", "D", "E", "F", "G"]
       random = @columns.sample
+
 
       if random == "A"
         return 0
@@ -26,26 +29,29 @@ class Computer
         return 5
       elsif random == "G"
         return 6
+      else
+        return -1
       end
     end
 
-    def comp_place_piece
+    def place_piece
       comp_column = random_column
 
-      if @game_board[6][comp_column] == "."
-        return @game_board[6][comp_column] = "O"
-      elsif @game_board[5][comp_column] == "."
-        return @game_board[5][comp_column] = "O"
-      elsif @game_board[4][comp_column] == "."
-        return @game_board[4][comp_column] = "O"
-      elsif @game_board[3][comp_column] == "."
-        return @game_board[3][comp_column] = "O"
-      elsif @game_board[2][comp_column] == "."
-        return @game_board[2][comp_column] = "O"
-      elsif @game_board[1][comp_column] == "."
-        return @game_board[1][comp_column] = "O"
-      else
-        random_column
-      end
+        if @board[6][comp_column] == "."
+          return @board[6][comp_column] = "O"
+        elsif @board[5][comp_column] == "."
+          return @board[5][comp_column] = "O"
+        elsif @board[4][comp_column] == "."
+          return @board[4][comp_column] = "O"
+        elsif @board[3][comp_column] == "."
+          return @board[3][comp_column] = "O"
+        elsif @board[2][comp_column] == "."
+          return @board[2][comp_column] = "O"
+        elsif @board[1][comp_column] == "."
+          return @board[1][comp_column] = "O"
+        else
+          random_column
+        end
     end
+
 end
