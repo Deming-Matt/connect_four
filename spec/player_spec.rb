@@ -1,28 +1,36 @@
-require "./lib/board"
-require "./lib/player"
+require './lib/board'
+require 'pry'
 
-RSpec.describe Player do
-  it "exists" do
-    player = Player.new
-
-    expect(player).to be_an_instance_of Player
+RSpec.describe Board do
+  before :each do
+    @board = Board.new
   end
 
+  it "exists" do
+    expect(@board).to be_a(Board)
+  end
+
+  it 'has attributes' do
+    expect(@board.game_board).to eq([
+    [ "A",  "B",  "C",  "D",  "E",  "F",  "G"],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."],
+    [ ".",  ".",  ".",  ".",  ".",  ".",  "."]
+  ])
+  end
+
+  it 'can print the board for viewing' do
+    expect(@board.visual_board).to eq("A B C D E F G
+. . . . . . .
+. . . . . . .
+. . . . . . .
+. . . . . . .
+. . . . . . .
+. . . . . . .")
+  end
+
+
 end
-
-
-  # it "will place a X on the board" do
-  #   player = Player.new
-  #   @user_input = user_input
-  #   user_input = "c"
-  #   player.place_piece
-  #   expect(player.place_piece).to eq "ABCDEFG"
-  #   "......."
-  #   "......."
-  #   "......."
-  #   "......."
-  #   "......."
-  #   "..X...."
-  #   expect(player).to be_an_instance_of Player
-  #
-  # end

@@ -2,6 +2,7 @@ require './lib/board'
 require './lib/player'
 require './lib/computer'
 require './lib/turn'
+require './lib/game'
 
 class Win
   attr_reader :board, :player_wins, :computer_wins, :is_winner
@@ -10,77 +11,116 @@ class Win
     @board = game_board
     @player_wins = false
     @computer_wins = false
-    @is_winner = is_winner
+    @is_winner = false
+  end
+
+  def start
+    p "Enter your name."
+    name = gets.chomp
+    p"#{name} Try to connect 4 X's in a row"
+    @board.visual_board
+  end
+
+  def welcome # Profesor T: Can we run a test on this, since it takes user input? What are the parameters for taking in user input and testing
+    puts "Welcome to Connect Four! Enter p to play. Enter q to quit."
+      play_button = gets.chomp
+      if play_button.downcase == "p"
+        start
+      elsif play_button.downcase == "q"
+        puts "Sorry you don't wanna play, see you next time."
+      else #play_button.downcase != "p"
+        welcome
+      end
   end
 
   #checking board
   #outer loop row, inner loop col
 
   def win_check#checking horzontal [0..3]
-    is_winner = false
+    @is_winner == false
     for row in 1..6 do
       for col in 0..6 do #checking horzontal inner [0..3]
         if col < 4
           horizontal(row,col)
           if @player_wins == true
-            is_winner = true
+            @is_winner = true
+            p "Win for humanity"
+            welcome
             break
           end
           if @computer_wins == true
-            is_winner = true
+            @is_winner = true
+            p "Win for the machines"
+            welcome
             break
           end
-        else
+        else #draw @turns == 21 && @is_winner == false
           break
         end
         if row < 4
           vertical(row,col)
           if @player_wins == true
-            is_winner = true
+            @is_winner = true
+            p "Win for humanity"
+            welcome
             break
           end
 
           if @computer_wins == true
-            is_winner = true
+            @is_winner = true
+            p "Win for the machines"
+            welcome
             break
           end
-        else
+        else #draw @turns == 21 && @is_winner == false
           break
         end
         if row < 4 || col < 4
           diagnal(row,col)
           if @player_wins == true
-            is_winner = true
+            @is_winner = true
+            p "Win for humanity"
+            welcome
             break
           end
           if @computer_wins == true
-            is_winner = true
+            @is_winner = true
+            p "Win for the machines"
+            welcome
             break
           end
-        else
+        else #draw @turns == 21 && @is_winner == false
           break
         end
-
-
       end
-
     end
   end
 
-  def is_winner
-    @is_winner = false
-    if @player_wins == true
-      p "Win for humanity"
-    end
-     if @computer_wins == true
-      p "Win for the machines"
-    end
-  end
+  ##This code was going to check in the other direction
+      #   if row > 3 || col < 3
+      #     diagnal_lower(row,col)
+      #     if @player_wins == true
+      #       @is_winner = true
+      #       p "Win for humanity"
+      #       welcome
+      #       break
+      #     end
+      #     if @computer_wins == true
+      #       @is_winner = true
+      #       p "Win for the machines"
+      #       welcome
+      #       break
+      #     end
+      #   else #draw @turns == 21 && @is_winner == false
+      #     break
+      #   end
+      #
+      # end
+#########
 
   def horizontal(row,col)
     if @board[row][col] == "X" && @board[row][col+1] == "X" && @board[row][col+2] == "X" && @board[row][col+3] == "X"
       @player_wins = true
-
     end
     if @board[row][col] == "O" && @board[row][col+1] == "O" && @board[row][col+2] == "O" && @board[row][col+3] == "O"
       @computer_wins = true
@@ -104,7 +144,18 @@ class Win
       @computer_wins = true
     end
   end
+#####
+##to try to diagnal
+  # def diagnal_lower(row,col)
+  #   if @board[row+5][col] == "X" && @board[row+4][col+1] == "X" && @board[row+3][col+2] == "X" && @board[row+2][col+3] == "X"
+  #     @player_wins = true
+  #   end
+  #   if @board[row+5][col] == "O" && @board[row+4][col+1] == "O" && @board[row+3][col+2] == "O" && @board[row+2][col+3] == "O"
+  #     @computer_wins = true
+  #   end
+  # end
 
+##option 2
   #   @board_hash = {
   #     a1: @board[6][0], a2: @board[5][0], a3: @board[4][0], a4: @board[3][0], a5: @board[2][0], a6: @board[1][0],
   #     b1: @board[6][1], b2: @board[5][1], b3: @board[4][1], b4: @board[3][1], b5: @board[2][1], b6: @board[1][1],
